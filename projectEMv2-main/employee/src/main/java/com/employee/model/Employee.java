@@ -1,5 +1,7 @@
 package com.employee.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 
 @Entity
@@ -13,14 +15,18 @@ public class Employee {
     private String firstName;
     private String email;
     private String position;
-    private String company ;
+    private String company;
 
-
+    // Default constructor is required for Jackson
     public Employee() {
-
     }
 
-    public Employee(String firstName, String email, String position, String company) {
+    @JsonCreator
+    public Employee(
+            @JsonProperty("firstName") String firstName,
+            @JsonProperty("email") String email,
+            @JsonProperty("position") String position,
+            @JsonProperty("company") String company) {
         this.firstName = firstName;
         this.email = email;
         this.position = position;
@@ -35,11 +41,11 @@ public class Employee {
         this.id = id;
     }
 
-    public String getfirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setfirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -67,7 +73,6 @@ public class Employee {
         this.company = company;
     }
 
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -78,5 +83,4 @@ public class Employee {
                 ", position='" + position + '\'' +
                 '}';
     }
-
 }
