@@ -29,7 +29,7 @@ public class EmployeeService {
         Optional<Employee> employeeOptional = employeeRepository.findById(id);
         if (employeeOptional.isPresent()) {
             Employee employee = employeeOptional.get();
-            employee.setFirstName(updatedEmployee.getFirstName());
+            employee.setfirstName(updatedEmployee.getfirstName());
             employee.setEmail(updatedEmployee.getEmail());
             employee.setPosition(updatedEmployee.getPosition());
             return employeeRepository.save(employee);
