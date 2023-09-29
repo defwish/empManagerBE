@@ -2,7 +2,6 @@ package com.employee.controller;
 
 import com.employee.model.Employee;
 import com.employee.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,6 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    @Autowired
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }

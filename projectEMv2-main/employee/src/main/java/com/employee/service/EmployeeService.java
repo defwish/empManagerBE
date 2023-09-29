@@ -18,7 +18,8 @@ public class EmployeeService {
     private final EmployeeRepository employeeRepository;
 
     public ResponseEntity<Page<Employee>> getAllEmployees(Pageable pageable) {
-        return (ResponseEntity<Page<Employee>>) employeeRepository.findAll(pageable);
+        Page<Employee> employees = employeeRepository.findAll(pageable);
+        return ResponseEntity.ok(employees);
     }
 
     public Employee createEmployee(Employee employee) {
